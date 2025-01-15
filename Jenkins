@@ -13,3 +13,34 @@ sudo apt-get update
 10 . sudo systemctl start Jenkins
 11. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 12. change the port range 8080 and type all traffic and run http://publicipaddress:8080 
+
+After that we are installing the Docker :
+sudo apt install docker.io
+access to granr user  docker demon 
+:
+sudo su - 
+usermod  -aG docker jenkins 
+usermod -aG docker ubuntu 
+systemctl restart  docker
+
+then: 
+     logout 
+usermod -aG docker jenkins 
+ then : 
+      su - jenkins 
+      docker  run hello-world
+
+http://publicip:8080/restart
+then : download plugins for go to jenkins manage jenkins 
+
+
+for logout and swith for jenkins 
+
+root@ip-172-31-12-159:~# su - jenkins
+jenkins@ip-172-31-12-159:~$ logout
+stop jenkis :
+sudo systemctl stop jenkins
+if we want to restart then :
+sudo systemctl restart jenkins
+
+
