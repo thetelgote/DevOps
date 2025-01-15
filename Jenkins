@@ -1,0 +1,15 @@
+Jenkins Installation New Steps :
+1. cat /etc/apt/sources.list.d/jenkins.list
+2. deb https://pkg.jenkins.io/debian-stable binary/
+3. echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+deb https://pkg.jenkins.io/debian-stable binary/
+4.  sudo apt-get clean
+sudo apt-get update
+5.  sudo apt-cache search Jenkins
+6. sudo apt-get install jenkins
+7 . sudo apt-get install -f
+8. sudo systemctl start jenkins
+9.  sudo systemctl status jenkins
+10 . sudo systemctl start Jenkins
+11. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+12. change the port range 8080 and type all traffic and run http://publicipaddress:8080 
