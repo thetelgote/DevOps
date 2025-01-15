@@ -1,0 +1,9 @@
+Git Connect TO aws Steps 
+sudo snap install aws-cli --classic
+
+
+#git connection
+git clone https://github.com/username/filename.git
+token 
+export GITHUB_USERNAME 
+export GITHUB_TOKEN 
