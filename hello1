@@ -1,40 +1,12 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/thetelgote/DevOps.git'
-            }
-        }
-
-        stage('Read hello1') {
-            steps {
-                script {
-                    // Read the contents of hello1 and print it
-                    def hello1Content = readFile('hello1')
-                    echo "Content of hello1: ${hello1Content}"
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building project...'
-                // Add additional build steps here
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying project...'
-            }
-        }
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
     }
+  }
 }
