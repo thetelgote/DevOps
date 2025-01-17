@@ -1,10 +1,39 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Hello World') {
+        stage('Checkout') {
             steps {
-                echo 'Hello, World!'  // This will print "Hello, World!" in the Jenkins console
+                git 'https://github.com/thetelgote/DevOps.git'
+            }
+        }
+
+        stage('Read hello1') {
+            steps {
+                script {
+                    // Read the contents of hello1 and print it
+                    def hello1Content = readFile('hello1')
+                    echo "Content of hello1: ${hello1Content}"
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+                // Add additional build steps here
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying project...'
             }
         }
     }
