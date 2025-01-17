@@ -1,0 +1,76 @@
+pipeline {
+    agent any  // Runs the pipeline on any available agent
+
+    environment {
+        REPO_URL = 'https://github.com/thetelgote/DevOps.git'
+        BRANCH = 'main'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: "${REPO_URL}", branch: "${BRANCH}"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    echo 'Building the project...'
+                    sh 'mvn clean install'  // Replace with your actual build tool (Maven/Gradle)
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    echo 'Running tests...'
+                    // Add your test command here, e.g., for Maven: sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    echo 'Building Docker image...'
+                    sh 'docker build -t my-app .'  // Replace 'my-app' with your Docker image name
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                script {
+                    echo 'Running Docker container...'
+                    sh 'docker run -d -p 8080:8080 my-app'  // Run the container in detached mode and map port 8080
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    echo 'Deploying application...'
+                    // Add your deployment steps here, e.g., copying files or deploying to a server
+                }
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs for errors.'
+        }
+    }
+}
