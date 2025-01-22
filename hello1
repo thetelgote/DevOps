@@ -1,31 +1,10 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('Example') {
             steps {
-                // Checkout the code from your GitHub repository
-                git branch: 'main', url: 'https://github.com/thetelgote/DevOps.git'
+                echo 'Hello, World!'
             }
-        }
-
-        stage('Run hello1 Script') {
-            steps {
-                script {
-                    // Ensure the script is executable and run it from the correct folder
-                    sh 'chmod +x path/to/hello1'  // Make it executable
-                    sh './path/to/hello1'  // Run the script from the subfolder
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'The script ran successfully!'
-        }
-        failure {
-            echo 'There was an error running the script.'
         }
     }
 }
