@@ -1,0 +1,16 @@
+Basic Commands For Use Linux 
+1. ls - List the all files/directory 
+2. man - manual of command 
+3. cd - change the directory 
+4. mkdir - make the directory 
+5. touch - make the file 
+6. chmod - change the mode or give the permissions
+7. mkdir - make the directory 
+8. pwd - present the work of directory 
+9. grep - to display the specific data in the file 
+10. cp - copy the data/file into another
+11. mv - move the file into ..
+12. rm- remove the file 
+13. rmdir - remove the directory 
+14. tee - it is an use to display and create the file : echo "hello" | tee new.txt
+15. sort - sorting the data in the file 
