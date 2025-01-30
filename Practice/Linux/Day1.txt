@@ -14,3 +14,8 @@ Basic Commands For Use Linux
 13. rmdir - remove the directory 
 14. tee - it is an use to display and create the file : echo "hello" | tee new.txt
 15. sort - sorting the data in the file 
+16. top - it is an say the all process in system
+17. df - disk free
+18. du - disk usage
+19. kill - kill the process
+
