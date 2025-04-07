@@ -1,0 +1,39 @@
+YAML Language is an Used  for pipeline and docker (or CI AND CD}
+--->
+#Sample Create Pipeline 
+
+name: Hello World
+
+on: 
+  push:
+    branches:
+      - master  # Make sure this matches your branch name (e.g., 'main' or 'master')
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Hello World
+        run: echo "Hello, World!"
+
+
+you always create folder .git/workflow after that you insert the file.txt inside and build it and testing it
+
+trigger" is an automated mechanism that initiates a pipeline or workflow based on specific events or conditions within a Git repository, such as code pushes, pull requests, or tag creations.
+
+it is an used for push pull request
+
+You can also GitHub Scehdule time build & test
+
+You can also multiple jobs on one pipeline of GitHub Actions
+
+
+if the conflict occur use the command :
+git pull origin master --rebase
+
+git add .
+git rebase --continue
